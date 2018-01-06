@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <QTime>
 
 #include "graph.h"
 
@@ -21,18 +22,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     QString fileName(int i);
+    double eval(plate plates[ROWS][COLS]);
+    void copyPlate(plate *src, plate *dst, int length);
+    void loop();
     ~MainWindow();
 
 private slots:
 
-    void on_pushButton_stop_clicked();
-
     void on_pushButton_go_clicked();
+
+    void on_pushButton_pause_resume_clicked();
 
 private:
     Ui::MainWindow *ui;
-    QLabel *plates[ROWS][COLS];
-    int id[ROWS][COLS];
+    QLabel *labels[ROWS][COLS];
     bool run;
 };
 

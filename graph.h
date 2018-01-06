@@ -10,19 +10,26 @@
 
 using namespace std;
 
+typedef struct _plate {
+    bool L = false;
+    bool R = false;
+    bool U = false;
+    bool D = false;
+    int space = 16;
+    int id = 10;
+} plate;
+
 class Graph
 {
 public:
-    Graph(int V, int id[ROWS][COLS]);
-    void addEdge(int row, int col, int id);
-    void visit(int v, bool *visited);
+    Graph(int V, plate plates[ROWS][COLS]);
     bool DFS(int v);
     void print();
 
 private:
     int V;
     list<int> *adjList;
-    void DFSUtil(int v, bool visited[]);
+    void visit(int v, bool *visited);
 };
 
 #endif // GRAPH_H
