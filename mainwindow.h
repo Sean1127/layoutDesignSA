@@ -7,7 +7,7 @@
 
 #include "graph.h"
 
-#define IMAGE_SIZE 241
+#define IMAGE_SIZE 120
 
 using namespace std;
 
@@ -36,6 +36,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QLabel *labels[ROWS][COLS];
+    QLabel *entrance;
+    QLabel *exit;
     bool run;
 };
 

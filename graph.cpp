@@ -107,12 +107,12 @@ Graph::Graph(int V, plate plates[ROWS][COLS])
         }
     }
     // entrance
-    if (plates[0][0].L) {
-        adjList[V].push_back(0);
+    if (plates[1][1].D) {
+        adjList[V].push_back(5);
     }
     // exit
-    if (plates[ROWS - 1][COLS - 1].R) {
-        adjList[V - 1].push_back(V + 1);
+    if (plates[1][2].D) {
+        adjList[6].push_back(V + 1);
     }
 }
 

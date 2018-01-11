@@ -10,9 +10,16 @@ MainWindow::MainWindow(QWidget *parent) :
     for (int i = 0; i < ROWS; ++i) {
         for (int j = 0; j < COLS; ++j) {
             labels[i][j] = new QLabel(this);
-            labels[i][j]->setGeometry(IMAGE_SIZE * j, IMAGE_SIZE * i, IMAGE_SIZE, IMAGE_SIZE);
+            labels[i][j]->setGeometry(IMAGE_SIZE * (j + 1), IMAGE_SIZE * (i + 1), IMAGE_SIZE, IMAGE_SIZE);
+            labels[i][j]->setPixmap(QPixmap(fileName(10)));
         }
     }
+    entrance = new QLabel(this);
+    entrance->setGeometry(IMAGE_SIZE * 2, IMAGE_SIZE * 3, IMAGE_SIZE, IMAGE_SIZE);
+    entrance->setPixmap(QPixmap(fileName(1)));
+    exit = new QLabel(this);
+    exit->setGeometry(IMAGE_SIZE * 3, IMAGE_SIZE * 3, IMAGE_SIZE, IMAGE_SIZE);
+    exit->setPixmap(QPixmap(fileName(1)));
 
     run = false;
 }
@@ -64,9 +71,9 @@ void MainWindow::on_pushButton_go_clicked()
 {
     run = true;
 
-    double temperature = 300.0;
-    double coolingRate = 0.95;
-    int maxIteration = 500;
+    double temperature = ui->lineEdit_temp->text().toDouble();
+    double coolingRate = ui->lineEdit_rate->text().toDouble();
+    int maxIteration = ui->lineEdit_iter->text().toDouble();
     double objNew;
     double boltzmann;
     plate current[ROWS][COLS];

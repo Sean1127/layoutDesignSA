@@ -6,7 +6,7 @@
 #include <QDebug>
 
 #define ROWS 2
-#define COLS 3
+#define COLS 4
 
 using namespace std;
 
